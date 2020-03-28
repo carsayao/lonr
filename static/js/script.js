@@ -16,6 +16,7 @@ socket.on('my_response', (data, cb) => {
 
 socket.on('message', data => {
     console.log(getTime(), 'client data', data);
+    console.log(typeof data)
     $('#chat-messages').prepend("<p>"+ "<strong>" + data.username
                               + ": </strong>" + data.text + "</p>");
 });

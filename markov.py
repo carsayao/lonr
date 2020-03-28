@@ -66,7 +66,7 @@ def load_model(person, word) -> str:
             'text': response
         }
 
-    return json.dumps(out)
+    return out
   
 def get_text(person, word) -> str:
     myfile = Path(outputDir + person + '_' + 'model.json')
@@ -101,7 +101,7 @@ def generate_message(person, query) -> str:
             'username': person,
             'text': 'anyone there? hello?'
         }
-        return json.dumps(out)
+        return out
         
     # Strip and replace special characters for nltk tokenizer
     query = query.replace("'", '')
@@ -121,10 +121,9 @@ def generate_message(person, query) -> str:
         return get_text(person, word)
     except Exception as e:
         print(e)
-        return json.dumps({ 
-                    "username": person,
-                    "text": "Sorry, I'm having trouble understanding you..."
-                })
+        out = { "username": person,
+                "text": "Sorry, I'm having trouble understanding you..." }
+        return out
     
 
 def main():
