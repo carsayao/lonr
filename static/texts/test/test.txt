@@ -1,0 +1,1 @@
+This is a test for the markovify package. I want to see if we can somehow assign a BEGIN to each word in the json model. Do you think that is possible? Let's run our code and find out.

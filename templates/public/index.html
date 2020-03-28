@@ -17,49 +17,77 @@
               <li class="form-check">
                 <label class="form-check-label">
                   <input id="maria" class="form-check-input" type="radio" name="who">
-                  <img class="circular--square" src="{{ url_for('static', filename='img/maria.jpeg') }}" width="70" height="70" alt="maria">
+                  <img class="circular--square"
+                       src="{{ url_for('static', filename='img/maria.jpeg') }}"
+                       width="70"
+                       height="70"
+                       alt="maria">
                   Maria Bamford
                 </label>
               </li>
               <li class="form-check">
                 <label class="form-check-label">
                   <input id="davec" class="form-check-input" type="radio" name="who">
-                  <img class="circular--square" src="{{ url_for('static', filename='img/davec.jpg') }}" width="70" height="70" alt="dave">
+                  <img class="circular--square"
+                       src="{{ url_for('static', filename='img/davec.jpg') }}"
+                       width="70"
+                       height="70"
+                       alt="dave">
                   Dave Chappelle
                 </label>
               </li>
               <li class="form-check">
                 <label class="form-check-label">
                   <input id="johnm" class="form-check-input" type="radio" name="who">
-                  <img class="circular--square" src="{{ url_for('static', filename='img/johnm.jpeg') }}" width="70" height="70" alt="john">
+                  <img class="circular--square"
+                       src="{{ url_for('static', filename='img/johnm.jpeg') }}"
+                       width="70"
+                       height="70"
+                       alt="john">
                   John Mulaney
                 </label>
               </li>
               <li class="form-check">
                 <label class="form-check-label">
                   <input id="brian" class="form-check-input" type="radio" name="who">
-                  <img class="circular--square" src="{{ url_for('static', filename='img/brian.jpeg') }}" width="70" height="70" alt="brian">
+                  <img class="circular--square"
+                       src="{{ url_for('static', filename='img/brian.jpeg') }}"
+                       width="70"
+                       height="70"
+                       alt="brian">
                   Brian Regan
                 </label>
               </li>
               <li class="form-check">
                 <label class="form-check-label">
                   <input id="iliza" class="form-check-input" type="radio" name="who">
-                  <img class="circular--square" src="{{ url_for('static', filename='img/iliza.jpeg') }}" width="70" height="70" alt="iliza">
+                  <img class="circular--square"
+                       src="{{ url_for('static', filename='img/iliza.jpeg') }}"
+                       width="70"
+                       height="70"
+                       alt="iliza">
                   Iliza Shlesinger
                 </label>
               </li>
               <li class="form-check">
                 <label class="form-check-label">
                   <input id="bible" class="form-check-input" type="radio" name="who">
-                  <img class="circular--square" src="{{ url_for('static', filename='img/bible.jpeg') }}" width="70" height="70" alt="bible">
+                  <img class="circular--square"
+                       src="{{ url_for('static', filename='img/bible.jpeg') }}"
+                       width="70"
+                       height="70"
+                       alt="bible">
                   King James Bible
                 </label>
               </li>
               <!-- <li class="form-check">
                 <label class="form-check-label">
                 <input id="all" class="form-check-input" type="radio" name="who">
-                <img class="circular--square" src="/images/all.jpeg" width="70" height="70" />
+                <img class="circular--square"
+                src="/images/all.jpeg"
+                width="70"
+                height="70"
+                alt="all">
                 All People
                 </label>
                 </li> -->
@@ -94,9 +122,8 @@
 {% block script %}
 
 <!-- Link JS file-->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 {% endblock %}
 

@@ -6,6 +6,11 @@ Jinja2==2.11.1
 MarkupSafe==1.1.1
 Werkzeug==1.0.0
 
+git+https://github.com/carsayao/markovify.git
+nltk==3.4.5  # need to update
+simplejson==3.16.0 # need to update
+numpy==1.18.2
+
 # Pythonise tutorial reqs
 # Click==7.0
 # Flask==1.1.1
