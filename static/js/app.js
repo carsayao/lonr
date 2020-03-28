@@ -5,10 +5,14 @@ function getTime() {
   return (Date.now() - start) / 1000;
 };
 
-// var objectSocket = io.connect('http://robochat.appspot.com');
-var objectSocket = io.connect('http://localhost:8080/');
+var objectSocket = io();
+//var objectSocket = io.connect('http://localhost:8080/');
 // var objectSocket = io.connect('http://localhost:8080/', () => {
 // 	console.log(getTime(), "objectSocket");
+// });
+
+// objectSocket.on('my_response', objectData => {
+//   consolge.log(getTime(), 'my_response', objectData);
 // });
 
 objectSocket.on('message', function (objectData) {
