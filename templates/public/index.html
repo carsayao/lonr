@@ -1,0 +1,98 @@
+{% extends "public/templates/public_template.html" %}
+
+{% block title %}Lonr{% endblock %}
+
+{% block main %}
+
+	<script src="https://localhost:8080/socket.io/socket.io.js"></script>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+	<table>
+		<tbody>
+			<tr>
+
+				<td>
+					<div class="card">
+						<div class="card-header">Chatroom</div>
+						<div class="card-body">
+							<ul class="nav flex-column">
+								<li class="form-check">
+									<label class="form-check-label">
+										<input id="maria" class="form-check-input" type="radio" name="who">
+										<img class="circular--square" src="{{ url_for('static', filename='img/maria.jpeg') }}" width="70" height="70" alt="maria">
+										Maria Bamford
+									</label>
+								</li>
+								<li class="form-check">
+									<label class="form-check-label">
+										<input id="davec" class="form-check-input" type="radio" name="who">
+										<img class="circular--square" src="{{ url_for('static', filename='img/davec.jpg') }}" width="70" height="70" alt="dave">
+										Dave Chappelle
+									</label>
+								</li>
+								<li class="form-check">
+									<label class="form-check-label">
+										<input id="johnm" class="form-check-input" type="radio" name="who">
+										<img class="circular--square" src="{{ url_for('static', filename='img/johnm.jpeg') }}" width="70" height="70" alt="john">
+										John Mulaney
+									</label>
+								</li>
+								<li class="form-check">
+									<label class="form-check-label">
+										<input id="brian" class="form-check-input" type="radio" name="who">
+										<img class="circular--square" src="{{ url_for('static', filename='img/brian.jpeg') }}" width="70" height="70" alt="brian">
+										Brian Regan
+									</label>
+								</li>
+								<li class="form-check">
+									<label class="form-check-label">
+										<input id="iliza" class="form-check-input" type="radio" name="who">
+										<img class="circular--square" src="{{ url_for('static', filename='img/iliza.jpeg') }}" width="70" height="70" alt="iliza">
+										Iliza Shlesinger
+									</label>
+								</li>
+								<li class="form-check">
+									<label class="form-check-label">
+										<input id="bible" class="form-check-input" type="radio" name="who">
+										<img class="circular--square" src="{{ url_for('static', filename='img/bible.jpeg') }}" width="70" height="70" alt="bible">
+										King James Bible
+									</label>
+								</li>
+								<!-- <li class="form-check">
+									<label class="form-check-label">
+										<input id="all" class="form-check-input" type="radio" name="who">
+										<img class="circular--square" src="/images/all.jpeg" width="70" height="70" />
+										All People
+									</label>
+								</li> -->
+							</ul>
+						</div>
+					</div>
+				</td>
+
+				<td>
+					<div class="card" style="border-style:none;">
+						<div class="card-header bg-transparent border-0"></div>
+						<div class="card-body">
+							<div class="form-group">
+								<div class="chat-messages" id="chat-messages">
+									<div class="empty-val"></div>
+								</div>
+								<div class="input-group">
+									<input class="form-control" id="message" type="text" placeholder="message">
+									<button id="submit" class="btn btn-primary" type="submit">submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+
+			</tr>
+		</tbody>
+	</table>
+{% endblock %}
+{% block script %}
+  <!-- Link JS file-->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}
+
