@@ -29,6 +29,7 @@ def test_connect():
 @socketio.on("disconnect")
 def test_disconnect():
     print("\t[!] Client disconnected")
+    send('disconnect')
 
 if __name__ == "__main__":
     socketio.run(app)

@@ -21,7 +21,7 @@ socket.on('message', data => {
                               + ": </strong>" + data.text + "</p>");
 });
 
-socket.on('clientDisconnect', data => {
+socket.on('disconnect', data => {
     console.log(getTime(), 'clientDisconnect');
     $('#chat-messages').prepend("<p>" + "disconnect" + "</p>");
 });
