@@ -1,0 +1,68 @@
+Total time for 354 transcript downloads:
+________________________________________________________
+Executed in   15.70 mins   fish           external 
+   usr time   26.00 secs    0.00 micros   26.00 secs 
+   sys time    0.46 secs  653.00 micros    0.46 secs
+
+
+elementor-widget-container
+elementor-widget-theme-post-content
+
+import re, requests
+from urllib.parse import urlparse
+
+URL = "https://scrapsfromtheloft.com/2017/10/07/jen-kirkman-just-keep-livin-2017-full-transcript/"
+path = urlparse(URL)
+url_path = re.search(r"[a-z].*[full-transcript]", str(path.path)).string.split('/')[1:-1]
+date = '-'.join(url_path[:3])
+title = '-'.join(url_path[3].split('-')[2:])
+
+#get name
+name = '-'.join(url_path[3].split('-')[:2])
+
+#filename
+fname = '_'.join([name, date, title])
+
+date
+title
+name
+fname
+
+[li.find('a').get('href') for li in raw_html.find_all('li')]
+
+4 folders, 5 other items
+20 folders after running twice
+
+^(.*?)\-
+jen-kirkman-just-keep-livin-2017-full-transcript
+
+
+standups = [
+	{
+		"name": "jen-kirkman",
+		"act":
+			[
+				{
+					"act_name": "jen-kirkman-just-keep-livin-2017-full-transcript",
+					"date": "2017-10-07",
+					"text": "...."
+				}
+			]
+	},
+	{
+		"name": "louis-c",
+		"act":
+			[
+				{
+					"act_name: "louis-c-k-shameless-2007-full-transcript",
+					date: "2017-05-30",
+					text: "...."
+				},
+				{
+					act_name: "louis-c-k-hilarious-2010-full-transcript",
+					date: "2017-06-01",
+					text: "...."
+				}
+			]
+	}
+]
