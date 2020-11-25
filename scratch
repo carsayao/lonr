@@ -5,23 +5,13 @@ Executed in   15.70 mins   fish           external
    sys time    0.46 secs  653.00 micros    0.46 secs
 
 
-elementor-widget-container
-elementor-widget-theme-post-content
+scrape urls
+check which ones are good to download
+write transcripts
+build and pickle dataframe
 
-import re, requests
-from urllib.parse import urlparse
-
-URL = "https://scrapsfromtheloft.com/2017/10/07/jen-kirkman-just-keep-livin-2017-full-transcript/"
-path = urlparse(URL)
-url_path = re.search(r"[a-z].*[full-transcript]", str(path.path)).string.split('/')[1:-1]
-date = '-'.join(url_path[:3])
-title = '-'.join(url_path[3].split('-')[2:])
-
-#get name
-name = '-'.join(url_path[3].split('-')[:2])
-
-#filename
-fname = '_'.join([name, date, title])
+# turn df into list
+[i for i in df.values.tolist()]
 
 date
 title
@@ -29,6 +19,16 @@ name
 fname
 
 [li.find('a').get('href') for li in raw_html.find_all('li')]
+
+deleted from scraps-list.txt
+https://scrapsfromtheloft.com/2019/08/01/whitney-cummings-can-i-touch-it-transcript/
+https://scrapsfromtheloft.com/2017/12/25/whitney-cummings-i-love-2014-full-transcript/
+https://scrapsfromtheloft.com/2017/12/25/whitney-cummings-im-your-girlfriend-2016-full-transcript/
+
+deleted files
+whitney-cummings_2017-12-25_im-your-girlfriend-2016-full-transcript.txt
+whitney-cummings_2019-08-01_can-i-touch-it-transcript.txt
+
 
 4 folders, 5 other items
 20 folders after running twice
