@@ -3,12 +3,21 @@ ________________________________________________________
 Executed in   15.70 mins   fish           external 
    usr time   26.00 secs    0.00 micros   26.00 secs 
    sys time    0.46 secs  653.00 micros    0.46 secs
-
+356 new links to download
+________________________________________________________
+Executed in  820.49 secs   fish           external 
+   usr time   30.32 secs  562.00 micros   30.32 secs 
+   sys time    1.38 secs  255.00 micros    1.38 secs 
+   
 
 scrape urls
 check which ones are good to download
 write transcripts
 build and pickle dataframe
+
+
+pd.concat([df1, df2], ignore_index=True, sort=False)
+
 
 # turn df into list
 [i for i in df.values.tolist()]

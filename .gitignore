@@ -1,3 +1,5 @@
 __pycache__/
 env/
 *.sw*
+static/texts/*/
+static/texts/transcripts.pkl

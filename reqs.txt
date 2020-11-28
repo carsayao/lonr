@@ -10,6 +10,7 @@ simplejson
 numpy
 git+https://github.com/carsayao/markovify.git
 bs4 # beautiful soup
+pandas
 
 # lonr orig
 # Flask==1.1.1
