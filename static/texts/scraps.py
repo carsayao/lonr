@@ -39,7 +39,7 @@ def get_urls():
 
     # Write these new links to file
     with open(flinks, 'a') as f:
-        f.writelines('\n'.join(new_urls)) if os.stat(flinks).st_size == 0 else f.writelines('\n'.join(new_urls)+'\n')
+        f.writelines('\n'.join(new_urls)) if os.stat(flinks).st_size == 0 else f.writelines('\n'+'\n'.join(new_urls))
 
     return new_urls
 
@@ -80,17 +80,20 @@ def write_transcript(name, fname, text):
 def save(transcripts):
     """ Pickle the data """
     [write_transcript(t[0], t[3], t[4]) for t in transcripts]
-
+    # Put now transcripts to be written into a dataframe
     df = pd.DataFrame(transcripts,
                       columns=['name', 'date', 'title', 'fname', 'text'])
+    # If we already have a pickle, concatenate df onto it
     if os.path.isfile(fpkl):
         df = pd.concat([pd.read_pickle(fpkl), df], ignore_index=True, sort=False)
     df.to_pickle(fpkl)
-    print()
+    print("New transcripts serialized.")
+
 
 urls = get_urls()
-# with open(flinks) as f:
-    # urls = f.readlines()
+if len(urls) == 0:
+    print("No new transcripts to download.")
+    sys.exit()
 urls = [i.strip() for i in urls]
 # Turn into list comprehension of all transcripts
 print("Downloading...")
