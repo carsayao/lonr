@@ -14,14 +14,22 @@ def get_urls():
     url = "https://scrapsfromtheloft.com/stand-up-comedy-scripts/"
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
-    raw_html = soup.find('ul', attrs={'class': 'display-posts-listing'})
+    # div of list containing article elements
+    raw_html = soup.find('div', attrs={'class': 'elementor-posts-container'})
+    # raw_html = soup.find('ul', attrs={'class': 'display-posts-listing'})
     fetched_urls = []
     # Extract urls from list
-    fetched_urls = [li.find('a').get('href') for li in raw_html.find_all('li')]
+    fetched_urls = [article.find('a').get('href') for article in raw_html.find_all('article')]
+    # fetched_urls = [li.find('a').get('href') for li in raw_html.find_all('li')]
 
     # Read in what's already been written
-    with open(flinks) as f:
-        done = f.readlines()
+    with open(flinks, 'a') as f:
+        #import pdb; pdb.set_trace()
+        # Check if flinks exists
+        if os.stat(flinks).st_size != 0:
+            done = f.readlines()
+        else:
+            done = []
     # Only add to file what's not already in there
     new_urls = [f for f in fetched_urls if not any(f in d for d in done)]
     # print(f"Not in list:")
@@ -81,19 +89,20 @@ def save(transcripts):
     """ Pickle the data """
     [write_transcript(t[0], t[3], t[4]) for t in transcripts]
     # Put now transcripts to be written into a dataframe
-    df = pd.DataFrame(transcripts,
-                      columns=['name', 'date', 'title', 'fname', 'text'])
+    #df = pd.DataFrame(transcripts,
+    #                  columns=['name', 'date', 'title', 'fname', 'text'])
     # If we already have a pickle, concatenate df onto it
-    if os.path.isfile(fpkl):
-        df = pd.concat([pd.read_pickle(fpkl), df], ignore_index=True, sort=False)
-    df.to_pickle(fpkl)
-    print("New transcripts serialized.")
+    #if os.path.isfile(fpkl):
+    #    df = pd.concat([pd.read_pickle(fpkl), df], ignore_index=True, sort=False)
+    #df.to_pickle(fpkl)
+    #print("New transcripts serialized.")
 
 
 urls = get_urls()
 if len(urls) == 0:
     print("No new transcripts to download.")
     sys.exit()
+# Remove both leading and trailing whitespaces
 urls = [i.strip() for i in urls]
 # Turn into list comprehension of all transcripts
 print("Downloading...")
